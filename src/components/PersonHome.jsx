@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import PersonList from './PersonList';
 import PersonAdd from './PersonAdd';
 import './PersonHome.css'; // Import CSS file for styles and animations
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+import { TimelineMax } from 'gsap/gsap-core';
 
 const PersonHome = ({ persons, addPerson }) => {
+
   useEffect(() => {
     // Add scroll event listener for scrolling effect
     const handleScroll = () => {
@@ -39,11 +43,44 @@ const PersonHome = ({ persons, addPerson }) => {
     });
   }, []);
 
+  useEffect(()=> {
+    var tl = new TimelineMax({
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: .5
+    });
+    
+    tl.staggerTo(".wrapper > *", 0.5, {
+      opacity: 0,
+      cycle: {
+        x: [-100, 100],
+        rotation: [10, -10]
+      }
+    }, 0.1);
+  }, [])
+
   return (
     <div>
       <header className="header">
         <h1 className="title">Person Management App</h1>
       </header>
+        <div className="wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div className="second-section">
         <div className="person-add animate-person-add">
           <PersonAdd addPerson={addPerson} />

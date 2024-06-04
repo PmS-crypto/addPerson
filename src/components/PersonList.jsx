@@ -1,39 +1,30 @@
 // src/components/PersonList.jsx
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-const PersonList = () => {
-  const [persons, setPersons] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/persons')
-      .then(response => setPersons(response.data))
-      .catch(error => console.error('Error fetching persons', error));
-  }, []);
-
+const PersonList = ({ persons }) => {
   return (
-    <div>
-      <h1>Person List</h1>
-      <table className="min-w-full divide-y divide-gray-200">
+    <div className='p-7'>
+      <h2 className="text-2xl font-semibold mb-4">Person List</h2>
+      <table className="w-full table-auto border-collapse">
         <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>State</th>
-            <th>City</th>
+          <tr className="bg-gray-200 text-left">
+            <th className="p-2 border-b">First Name</th>
+            <th className="p-2 border-b">Last Name</th>
+            <th className="p-2 border-b">Email</th>
+            <th className="p-2 border-b">Phone</th>
+            <th className="p-2 border-b">State</th>
+            <th className="p-2 border-b">City</th>
           </tr>
         </thead>
         <tbody>
           {persons.map(person => (
-            <tr key={person.id}>
-              <td>{person.firstName}</td>
-              <td>{person.lastName}</td>
-              <td>{person.email}</td>
-              <td>{person.phone}</td>
-              <td>{person.state}</td>
-              <td>{person.city}</td>
+            <tr key={person.id} className="odd:bg-white even:bg-gray-100">
+              <td className="p-2 border-b">{person.firstName}</td>
+              <td className="p-2 border-b">{person.lastName}</td>
+              <td className="p-2 border-b">{person.email}</td>
+              <td className="p-2 border-b">{person.phone}</td>
+              <td className="p-2 border-b">{person.state}</td>
+              <td className="p-2 border-b">{person.city}</td>
             </tr>
           ))}
         </tbody>

@@ -2,9 +2,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 
-const PersonAdd = () => {
+const PersonAdd = ({ addPerson }) => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -22,17 +21,17 @@ const PersonAdd = () => {
       state: Yup.string().required('Required'),
       city: Yup.string().required('Required')
     }),
-    onSubmit: values => {
-      axios.post('/api/persons', values)
-        .then(response => alert('Person added successfully'))
-        .catch(error => console.error('Error adding person', error));
+    onSubmit: (values, { resetForm }) => {
+      addPerson(values);
+      resetForm(); 
     }
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div>
-        <label htmlFor="firstName">First Name</label>
+    <form onSubmit={formik.handleSubmit} className="bg-white p-6 rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4">Add Person</h2>
+      <div className="mb-4">
+        <label htmlFor="firstName" className="block text-gray-700">First Name</label>
         <input
           id="firstName"
           name="firstName"
@@ -40,13 +39,14 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.firstName}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.firstName && formik.errors.firstName ? (
-          <div>{formik.errors.firstName}</div>
+          <div className="text-red-500 text-sm">{formik.errors.firstName}</div>
         ) : null}
       </div>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
+      <div className="mb-4">
+        <label htmlFor="lastName" className="block text-gray-700">Last Name</label>
         <input
           id="lastName"
           name="lastName"
@@ -54,13 +54,14 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.lastName}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
+          <div className="text-red-500 text-sm">{formik.errors.lastName}</div>
         ) : null}
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
+      <div className="mb-4">
+        <label htmlFor="email" className="block text-gray-700">Email</label>
         <input
           id="email"
           name="email"
@@ -68,13 +69,14 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div className="text-red-500 text-sm">{formik.errors.email}</div>
         ) : null}
       </div>
-      <div>
-        <label htmlFor="phone">Phone</label>
+      <div className="mb-4">
+        <label htmlFor="phone" className="block text-gray-700">Phone</label>
         <input
           id="phone"
           name="phone"
@@ -82,13 +84,14 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.phone}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.phone && formik.errors.phone ? (
-          <div>{formik.errors.phone}</div>
+          <div className="text-red-500 text-sm">{formik.errors.phone}</div>
         ) : null}
       </div>
-      <div>
-        <label htmlFor="state">State</label>
+      <div className="mb-4">
+        <label htmlFor="state" className="block text-gray-700">State</label>
         <input
           id="state"
           name="state"
@@ -96,13 +99,14 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.state}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.state && formik.errors.state ? (
-          <div>{formik.errors.state}</div>
+          <div className="text-red-500 text-sm">{formik.errors.state}</div>
         ) : null}
       </div>
-      <div>
-        <label htmlFor="city">City</label>
+      <div className="mb-4">
+        <label htmlFor="city" className="block text-gray-700">City</label>
         <input
           id="city"
           name="city"
@@ -110,12 +114,13 @@ const PersonAdd = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.city}
+          className="mt-1 p-2 w-full border rounded"
         />
         {formik.touched.city && formik.errors.city ? (
-          <div>{formik.errors.city}</div>
+          <div className="text-red-500 text-sm">{formik.errors.city}</div>
         ) : null}
       </div>
-      <button type="submit">Add Person</button>
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded">Add Person</button>
     </form>
   );
 };

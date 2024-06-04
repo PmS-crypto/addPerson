@@ -1,6 +1,7 @@
-/* PersonHome.css */
+body {
+  transition: background-color 0.3s ease;
+}
 
-/* Title animation */
 .animate-title {
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
@@ -51,3 +52,107 @@
     }
   }
   
+  /* PersonHome.css */
+.header {
+  width: 100%;
+  color: white;
+  font-size: 44px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: hidden;/* Smooth transition for scrolling effect */
+}
+
+.scrolled {
+  font-size: 14px;
+  display: block;
+  padding: 10px;
+}
+
+/* PersonHome.css */
+
+/* Basic styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.title {
+  font-size: 48px;
+  margin: 0;
+  transition: font-size 0.3s ease;
+}
+
+.header.scrolled .title {
+  font-size: 24px;
+}
+
+.second-section {
+  margin-top: 100vh; /* Push the second section below the viewport height */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.second-section.visible {
+  opacity: 1;
+}
+
+.content {
+  display: flex;
+  padding-top: 100px; /* Adjust to create space between header and content */
+}
+
+.person-add,
+.person-list {
+  flex: 1;
+  padding: 20px;
+}
+
+.animate-person-add {
+  animation: slideInLeft 0.5s forwards;
+}
+
+.animate-person-list {
+  animation: slideInRight 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    /* transform: translateX(-100%); */
+    opacity: 0;
+  }
+  to {
+    /* transform: translateX(0); */
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    /* transform: translateX(100%); */
+    opacity: 0;
+  }
+  to {
+    /* transform: translateX(0); */
+    opacity: 1;
+  }
+}

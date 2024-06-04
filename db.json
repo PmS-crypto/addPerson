@@ -1,40 +1,5 @@
 {
   "persons": [
-    {
-      "firstName": "Poorva",
-      "lastName": "Shukla",
-      "email": "poorvas@icloud.com",
-      "phone": "2917154983",
-      "state": "Maharashtra",
-      "city": "Mumbai",
-      "id": 1
-    },
-    {
-      "firstName": "Poorva",
-      "lastName": "Shukla",
-      "email": "poorvas@icloud.com",
-      "phone": "2917154983",
-      "state": "Maharashtra",
-      "city": "Mumbai",
-      "id": 2
-    },
-    {
-      "firstName": "Poorva",
-      "lastName": "Shukla",
-      "email": "poorvas@icloud.com",
-      "phone": "2917154983",
-      "state": "Maharashtra",
-      "city": "Mumbai",
-      "id": 3
-    },
-    {
-      "firstName": "Poorva",
-      "lastName": "Shukla",
-      "email": "poorvas@icloud.com",
-      "phone": "9173648868",
-      "state": "Maharashtra",
-      "city": "Kalyan",
-      "id": 4
-    }
+    
   ]
 }

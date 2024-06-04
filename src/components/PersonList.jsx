@@ -3,7 +3,7 @@ import React from 'react';
 
 const PersonList = ({ persons }) => {
   return (
-    <div className='p-7'>
+    <div className='bg-white p-6 rounded-lg flex flex-col'>
       <h2 className="text-2xl font-semibold mb-4">Person List</h2>
       <table className="w-full table-auto border-collapse">
         <thead>
